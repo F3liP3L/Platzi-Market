@@ -10,19 +10,19 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private Long id;
+    private Long idCategoria;
     private String descripcion;
     private Boolean estado;
 
     @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
-    public Long getId() {
-        return id;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getDescripcion() {
@@ -39,5 +39,13 @@ public class Categoria {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 }
