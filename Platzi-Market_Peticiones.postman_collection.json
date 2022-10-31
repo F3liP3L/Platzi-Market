@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "3b56ba76-6e15-4415-bf37-e7642f2b8890",
+		"name": "Platzi-Market_Peticiones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Lechuga\",\r\n    \"categoryId\": 1,\r\n    \"price\": 2000.0,\r\n    \"stock\": 60,\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/products/51",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"products",
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by categoryId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/products/category/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"products",
+						"category",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get purchases by clientId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/purchase/cliente/4546221",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"purchase",
+						"cliente",
+						"4546221"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save purchases",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"clientId\": \"4546221\",\r\n        \"date\": \"2012-09-10T17:30:00\",\r\n        \"paymentMethod\": \"E\",\r\n        \"comment\": \"\",\r\n        \"state\": \"P\",\r\n        \"items\": [\r\n            {\r\n                \"productId\": 1,\r\n                \"quantity\": 8,\r\n                \"total\": 2400.0,\r\n                \"active\": true\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/platzi-market/api/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"platzi-market",
+						"api",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
