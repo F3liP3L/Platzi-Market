@@ -1,25 +1,36 @@
 package com.platzi.market.web.security;
 
+import com.platzi.market.domain.service.PlatziUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+
+@EnableWebSecurity
 public class SecurityConfig {
-
     @Autowired
-    private UserDetailsService userDetailsService;
+    private PlatziUserDetailsService userDetailsService;
 
     @Bean
-    public AuthenticationManager authManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder)throws Exception {
+    protected AuthenticationManager authManager(HttpSecurity http)throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(bCryptPasswordEncoder)
                 .and()
                 .build();
+    }
+
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+    }
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable().authorizeRequests().antMatchers("/**/authenticate").permitAll()
+                .anyRequest().authenticated();
     }
 
 }

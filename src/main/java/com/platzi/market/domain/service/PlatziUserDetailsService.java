@@ -13,6 +13,6 @@ public class PlatziUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new User("felipe", "{noop}marketpr0yect", new ArrayList<>());
+        return new User("felipe", "{noop}market29", new ArrayList<>());
     }
 }
